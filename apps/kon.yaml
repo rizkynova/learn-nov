@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: apps
+spec:
+  generators:
+    - git:
+        repoURL: git@github.com:rizkynova/learn-nov.git
+        revision: main
+        directories:
+          - path: apps/*
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: default
+      source:
+        repoURL: git@github.com:rizkynova/learn-nov.git
+        targetRevision: main
+        path: apps/{{path.basename}}
+      destination:
+        server: https://100.106.247.9:6443
+        namespace: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
