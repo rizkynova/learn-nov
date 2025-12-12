@@ -2,7 +2,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: argocd-application-controller
-  namespace: monitoring   # GANTI kalau Prometheus-nya di namespace lain
+  namespace: default   # GANTI kalau Prometheus-nya di namespace lain
   labels:
     release: kube-prometheus-stack   # GANTI kalau release name beda
 spec:
@@ -21,7 +21,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: argocd-repo-server
-  namespace: monitoring   # GANTI kalau perlu
+  namespace: default   # GANTI kalau perlu
   labels:
     release: kube-prometheus-stack   # GANTI kalau perlu
 spec:
@@ -40,7 +40,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: argocd-server
-  namespace: monitoring   # GANTI kalau perlu
+  namespace: default   # GANTI kalau perlu
   labels:
     release: kube-prometheus-stack   # GANTI kalau perlu
 spec:
