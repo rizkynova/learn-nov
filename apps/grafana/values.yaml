@@ -662,7 +662,15 @@ plugins: []
 ## Configure grafana datasources
 ## ref: http://docs.grafana.org/administration/provisioning/#datasources
 ##
-datasources: {}
+datasources: 
+ datasources.yaml:
+   apiVersion: 1
+   datasources:
+     - name: ArgoCD
+       type: prometheus
+       access: proxy
+       url: http://prometheus.monitoring.svc:9090
+       isDefault: true
 #  datasources.yaml:
 #    apiVersion: 1
 #    datasources:
